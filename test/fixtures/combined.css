@@ -1,0 +1,15 @@
+%dark-button {
+  color: black;
+}
+
+%dark-button + %dark-button {
+  color: green;
+}
+
+.button-group %dark-button {
+  color: red;
+}
+
+.some-button {
+  inherits: %dark-button;
+}

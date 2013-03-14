@@ -1,0 +1,11 @@
+.some-button {
+  color: black
+}
+
+.some-button + .some-button {
+  color: green
+}
+
+.button-group .some-button {
+  color: red
+}
