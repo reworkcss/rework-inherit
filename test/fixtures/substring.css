@@ -1,0 +1,11 @@
+%placeholder > button {
+  color: green;
+}
+
+div %placeholder > button {
+  color: red;
+}
+
+.button {
+  inherit: %placeholder > button;
+}

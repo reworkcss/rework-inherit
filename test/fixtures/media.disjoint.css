@@ -1,0 +1,19 @@
+.gray {
+  color: gray;
+}
+
+@media (min-width: 320px) {
+  .button1 {
+    inherit: .gray;
+  }
+}
+
+.black {
+  color: black;
+}
+
+@media (min-width: 320px) {
+  .button2 {
+    inherit: .gray;
+  }
+}
