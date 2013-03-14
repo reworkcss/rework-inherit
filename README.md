@@ -11,6 +11,10 @@ Like the extend mixin, but does more.
       .use(inherit())
       .toString()
 
+### Limitations
+
+- You can not inherit something from inside a media query
+
 ### License
 
 WTFPL
