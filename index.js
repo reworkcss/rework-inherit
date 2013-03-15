@@ -1,5 +1,3 @@
-var util = require('util')
-
 exports = module.exports = function () {
   return Inherit
 }
