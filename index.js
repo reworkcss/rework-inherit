@@ -166,8 +166,8 @@ Inherit.prototype.appendSelectors = function (matchedRules, val, selectors) {
 }
 
 // Placeholders are not allowed in media queries
-Inherit.prototype.removePlaceholders = function (rules) {
-  rules = rules || this.rules
+Inherit.prototype.removePlaceholders = function () {
+  var rules = this.rules
 
   for (var i = 0; i < rules.length; i++) {
     var selectors = rules[i].selectors
