@@ -1,0 +1,14 @@
+em,
+.test {
+  text-decoration: bold
+}
+
+a em,
+a .test {
+  color: red
+}
+
+em > span,
+.test > span {
+  color: yellow
+}

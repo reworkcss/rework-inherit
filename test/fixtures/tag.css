@@ -1,0 +1,15 @@
+em {
+  text-decoration: bold;
+}
+
+a em {
+  color: red;
+}
+
+em > span {
+  color: yellow;
+}
+
+.test {
+  inherit: em;
+}
