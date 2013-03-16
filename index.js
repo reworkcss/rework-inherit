@@ -5,14 +5,15 @@ exports = module.exports = function () {
 exports.Inherit = Inherit
 
 function Inherit(style) {
-  if (!(this instanceof Inherit)) return new Inherit(style);
+  if (!(this instanceof Inherit))
+    return new Inherit(style);
 
   var rules = this.rules = style.rules
   this.matches = {}
 
   for (var i = 0; i < rules.length; i++) {
     var rule = rules[i]
-    if (rule.media) {
+    if (rule.rules) {
       this.inheritMedia(rule)
       if (!rule.rules.length) rules.splice(i--, 1);
     } else if (rule.selectors) {
@@ -36,26 +37,22 @@ Inherit.prototype.inheritMedia = function (mediaRule) {
 
     if (!rule.declarations.length) rules.splice(i--, 1);
 
-    var len = additionalRules.length
-    if (len) {
-      ;[].splice.apply(rules, [i, 0].concat(additionalRules))
-      i += len
-    }
+    ;[].splice.apply(rules, [i, 0].concat(additionalRules))
+    i += additionalRules.length
   }
 }
 
 Inherit.prototype.inheritMediaRules = function (rule, query) {
   var declarations = rule.declarations
+  var selectors = rule.selectors
   var appendRules = []
 
   for (var i = 0; i < declarations.length; i++) {
     var decl = declarations[i]
-    var key = decl.property
-    if (!/^inherits?$/.test(key)) continue;
+    if (!/^inherits?$/.test(decl.property)) continue;
 
     decl.value.split(',').map(trim).forEach(function (val) {
-      var rules = this.inheritMediaRule(val, rule.selectors, query)
-      if (rules) [].push.apply(appendRules, rules);
+      ;[].push.apply(appendRules, this.inheritMediaRule(val, selectors, query));
     }, this)
 
     declarations.splice(i--, 1)
@@ -69,30 +66,24 @@ Inherit.prototype.inheritMediaRule = function (val, selectors, query) {
   var alreadyMatched = matchedRules.media[query]
   var matchedQueryRules = alreadyMatched || this.matchQueryRule(val, query)
 
-  if (!matchedQueryRules.rules.length) {
-    throw new Error('Failed to extend as media query from ' + val + '.')
-  }
+  if (!matchedQueryRules.rules.length)
+    throw new Error('Failed to extend as media query from ' + val + '.');
 
   this.appendSelectors(matchedQueryRules, val, selectors)
 
-  if (!alreadyMatched) {
-    // If not already matched, return rules to insert
-    return matchedQueryRules.rules.map(function (rule) {
-      return rule.rule
-    })
-  }
+  return alreadyMatched ? [] : matchedQueryRules.rules.map(getRule)
 }
 
 Inherit.prototype.inheritRules = function (rule) {
   var declarations = rule.declarations
+  var selectors = rule.selectors
 
   for (var i = 0; i < declarations.length; i++) {
     var decl = declarations[i]
-    var key = decl.property
-    if (!/^inherits?$/.test(key)) continue;
+    if (!/^inherits?$/.test(decl.property)) continue;
 
     decl.value.split(',').map(trim).forEach(function (val) {
-      this.inheritRule(val, rule.selectors)
+      this.inheritRule(val, selectors)
     }, this)
 
     declarations.splice(i--, 1)
@@ -102,9 +93,8 @@ Inherit.prototype.inheritRules = function (rule) {
 Inherit.prototype.inheritRule = function (val, selectors) {
   var matchedRules = this.matches[val] || this.matchRules(val)
 
-  if (!matchedRules.rules.length) {
-    throw new Error('Failed to extend from ' + val + '.')
-  }
+  if (!matchedRules.rules.length)
+    throw new Error('Failed to extend from ' + val + '.');
 
   this.appendSelectors(matchedRules, val, selectors)
 }
@@ -198,4 +188,8 @@ function escapeRegExp(str) {
 
 function trim(x) {
   return x.trim()
+}
+
+function getRule(x) {
+  return x.rule
 }
