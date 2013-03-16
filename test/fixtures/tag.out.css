@@ -12,3 +12,11 @@ em > span,
 .test > span {
   color: yellow
 }
+
+.emphasis {
+  text-decoration: bold
+}
+
+.them {
+  color: gray
+}

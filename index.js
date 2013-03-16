@@ -137,7 +137,7 @@ Inherit.prototype.matchRules = function (val) {
     if (!rule.selectors) return;
 
     var matchedSelectors = rule.selectors.filter(function (selector) {
-      return ~selector.indexOf(val)
+      return selector.match(replaceRegExp(val))
     })
 
     if (!matchedSelectors.length) return;
@@ -159,10 +159,10 @@ Inherit.prototype.appendSelectors = function (matchedRules, val, selectors) {
 
     matchedRule.selectors.forEach(function (matchedSelector) {
       ;[].push.apply(selectorReference, selectors.map(function (selector) {
-        return this.replaceSelector(matchedSelector, val, selector)
-      }, this))
-    }, this)
-  }, this)
+        return replaceSelector(matchedSelector, val, selector)
+      }))
+    })
+  })
 }
 
 // Placeholders are not allowed in media queries
@@ -182,11 +182,8 @@ Inherit.prototype.removePlaceholders = function () {
   }
 }
 
-Inherit.prototype.replaceSelector = function (matchedSelector, val, selector) {
-  var match = this.matches[val]
-  var regexp = match.regexp || (match.regexp = replaceRegExp(val))
-
-  return matchedSelector.replace(regexp, function (_, first, last) {
+function replaceSelector(matchedSelector, val, selector) {
+  return matchedSelector.replace(replaceRegExp(val), function (_, first, last) {
     return first + selector + last
   })
 }
