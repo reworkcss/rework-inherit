@@ -4,5 +4,9 @@
   "version": "0.0.2",
   "peerDependencies": {
     "visionmedia/rework": "*"
-  }
+  },
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
 }
