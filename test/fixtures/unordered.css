@@ -1,0 +1,7 @@
+.a {
+  inherit: .b;
+}
+
+.b {
+  color: red;
+}
