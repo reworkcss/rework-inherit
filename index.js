@@ -1,22 +1,28 @@
-exports = module.exports = function () {
-  return Inherit
+exports = module.exports = function (options) {
+  return function inherit(style) {
+    return new Inherit(style, options || {})
+  }
 }
 
 exports.Inherit = Inherit
 
-function Inherit(style) {
+function Inherit(style, options) {
   if (!(this instanceof Inherit))
-    return new Inherit(style);
+    return new Inherit(style, options);
+
+  this.propertyRegExp = options.propertyRegExp || /^inherits?$/
 
   var rules = this.rules = style.rules
   this.matches = {}
 
   for (var i = 0; i < rules.length; i++) {
     var rule = rules[i]
-    if (rule.rules) {
+    if (rule.rules && !options.disableMediaInheritance) {
+      // Media queries
       this.inheritMedia(rule)
       if (!rule.rules.length) rules.splice(i--, 1);
     } else if (rule.selectors) {
+      // Regular rules
       this.inheritRules(rule)
       if (!rule.declarations.length) rules.splice(i--, 1);
     }
@@ -80,7 +86,7 @@ Inherit.prototype.inheritRules = function (rule) {
 
   for (var i = 0; i < declarations.length; i++) {
     var decl = declarations[i]
-    if (!/^inherits?$/.test(decl.property)) continue;
+    if (!this.propertyRegExp.test(decl.property)) continue;
 
     decl.value.split(',').map(trim).forEach(function (val) {
       this.inheritRule(val, selectors)

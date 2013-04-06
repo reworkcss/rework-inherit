@@ -23,3 +23,15 @@ test('multiple', 'Inherit multiple selectors failed')
 test('tag', 'Inherit a tag failed')
 test('chain', 'Chained inheritance failed')
 test('unordered', 'Out of order inheritance failed')
+
+var ext = rework(read('extend')).use(inherit({
+  propertyRegExp: /^extends?$/
+})).toString()
+
+assert.equal(ext, read('chain.out'), 'Extends regexp failed:\n' + ext)
+
+var media = rework(read('media')).use(inherit({
+  disableMediaInheritance: true
+})).toString()
+
+assert.equal(media, read('disable.media.out'), 'Disable media inheritance failed:\n' + media)

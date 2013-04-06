@@ -15,6 +15,15 @@ var css = rework(inputCSS)
   .toString()
 ```
 
+#### Inherit(options{})
+
+Option parameters:
+
+* `propertyRegExp` - Regular expression to match the "inherit" property.
+  By default, it is `/^inherits?$/`, so it matches "inherit" as well as "inherits".
+  Set as `/^extends?$/` if you want to use the "extend" keyword.
+* `disableMediaInheritance` - Disable inheritance from within media queries.
+
 ### Examples
 
 #### Regular inherit
