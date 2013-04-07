@@ -4,5 +4,11 @@
   "version": "0.1.0",
   "peerDependencies": {
     "rework": ">= 0.13.2"
+  },
+  "devDependencies": {
+    "rework": ">= 0.13.2"
+  },
+  "scripts": {
+    "test": "node test"
   }
 }

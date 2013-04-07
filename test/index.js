@@ -35,3 +35,5 @@ var media = rework(read('media')).use(inherit({
 })).toString()
 
 assert.equal(media, read('disable.media.out'), 'Disable media inheritance failed:\n' + media)
+
+console.log('Tests pass!')
