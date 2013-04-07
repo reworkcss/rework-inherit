@@ -3,7 +3,7 @@
   "description": "Inherit rules from other selectors",
   "version": "0.1.0",
   "peerDependencies": {
-    "rework": ">= 0.13.2"
+    "rework": "*"
   },
   "devDependencies": {
     "rework": ">= 0.13.2"
