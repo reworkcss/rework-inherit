@@ -1,5 +1,7 @@
 ## Inherit
 
+[![Build Status](https://travis-ci.org/jonathanong/rework-inherit.png)](https://travis-ci.org/jonathanong/rework-inherit])
+
 Inherit mixin for [rework](https://github.com/visionmedia/rework).
 Like the extend mixin, but does so much more.
 If you inherit a selector,
