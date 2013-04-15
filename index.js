@@ -9,6 +9,8 @@ exports.Inherit = Inherit
 function Inherit(style, options) {
   if (!(this instanceof Inherit))
     return new Inherit(style, options);
+    
+  options = options || {}
 
   this.propertyRegExp = options.propertyRegExp || /^inherits?$/
 
