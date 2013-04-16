@@ -6,7 +6,7 @@
     "rework": "*"
   },
   "devDependencies": {
-    "rework": ">= 0.13.2"
+    "rework": ">= 0.14.0"
   },
   "scripts": {
     "test": "node test"

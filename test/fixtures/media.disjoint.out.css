@@ -4,7 +4,7 @@
 
 @media (min-width: 320px) {
   .button1,
-.button2 {
+  .button2 {
     color: gray
   }
 }
