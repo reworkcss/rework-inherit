@@ -2,12 +2,13 @@
   "name": "rework-inherit",
   "description": "Inherit rules from other selectors",
   "repo": "jonathanong/rework-inherit",
-  "version": "0.0.2",
+  "version": "0.1.2",
   "peerDependencies": {
     "visionmedia/rework": "*"
   },
   "main": "index.js",
   "scripts": [
     "index.js"
-  ]
+  ],
+  "license": "MIT"
 }

@@ -1,7 +1,7 @@
 {
   "name": "rework-inherit",
   "description": "Inherit rules from other selectors",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "peerDependencies": {
     "rework": "*"
   },
@@ -25,5 +25,5 @@
     "url": "https://github.com/jonathanong/rework-inherit/issues",
     "email": "me@jongleberry.com"
   },
-  "license": "WTFPL"
+  "license": "MIT"
 }
