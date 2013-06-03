@@ -1,14 +1,14 @@
 .gray {
-  color: gray
+  color: gray;
 }
 
 @media (min-width: 320px) {
   .button1,
   .button2 {
-    color: gray
+    color: gray;
   }
 }
 
 .black {
-  color: black
+  color: black;
 }

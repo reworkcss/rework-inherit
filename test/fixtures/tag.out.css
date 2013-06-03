@@ -1,22 +1,22 @@
 em,
 .test {
-  text-decoration: bold
+  text-decoration: bold;
 }
 
 a em,
 a .test {
-  color: red
+  color: red;
 }
 
 em > span,
 .test > span {
-  color: yellow
+  color: yellow;
 }
 
 .emphasis {
-  text-decoration: bold
+  text-decoration: bold;
 }
 
 .them {
-  color: gray
+  color: gray;
 }

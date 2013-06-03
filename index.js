@@ -9,7 +9,7 @@ exports.Inherit = Inherit
 function Inherit(style, options) {
   if (!(this instanceof Inherit))
     return new Inherit(style, options);
-    
+
   options = options || {}
 
   this.propertyRegExp = options.propertyRegExp || /^inherits?$/
@@ -117,6 +117,7 @@ Inherit.prototype.matchQueryRule = function (val, query) {
         selectors: rule.selectors,
         declarations: rule.declarations,
         rule: {
+          type: 'rule',
           selectors: [],
           declarations: rule.declarations
         }
