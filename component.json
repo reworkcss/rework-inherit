@@ -2,9 +2,9 @@
   "name": "rework-inherit",
   "description": "Inherit rules from other selectors",
   "repo": "jonathanong/rework-inherit",
-  "version": "0.1.4",
-  "peerDependencies": {
-    "visionmedia/rework": "*"
+  "version": "0.1.5",
+  "dependencies": {
+    "visionmedia/debug": "*"
   },
   "main": "index.js",
   "scripts": [
