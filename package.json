@@ -1,12 +1,12 @@
 {
   "name": "rework-inherit",
   "description": "Inherit rules from other selectors",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "peerDependencies": {
-    "rework": "*"
+    "rework": ">= 0.15.0"
   },
   "devDependencies": {
-    "rework": "*"
+    "rework": ">= 0.15.0"
   },
   "scripts": {
     "test": "node test"

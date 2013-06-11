@@ -2,7 +2,7 @@
   "name": "rework-inherit",
   "description": "Inherit rules from other selectors",
   "repo": "jonathanong/rework-inherit",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "peerDependencies": {
     "visionmedia/rework": "*"
   },
