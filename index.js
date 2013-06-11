@@ -1,3 +1,5 @@
+var debug = require('debug')('rework-inherit')
+
 exports = module.exports = function (options) {
   return function inherit(style) {
     return new Inherit(style, options || {})
@@ -5,8 +7,6 @@ exports = module.exports = function (options) {
 }
 
 exports.Inherit = Inherit
-
-exports.debug = require('debug')('rework-inherit')
 
 function Inherit(style, options) {
   if (!(this instanceof Inherit))
@@ -84,7 +84,7 @@ Inherit.prototype.inheritMediaRule = function (val, selectors, query) {
   if (!matchedQueryRules.rules.length)
     throw new Error('Failed to extend as media query from ' + val + '.');
 
-  exports.debug('extend %j in @media %j with %j', selectors, query, val);
+  debug('extend %j in @media %j with %j', selectors, query, val);
 
   this.appendSelectors(matchedQueryRules, val, selectors)
 
@@ -117,7 +117,7 @@ Inherit.prototype.inheritRule = function (val, selectors) {
   if (!matchedRules.rules.length)
     throw new Error('Failed to extend from ' + val + '.');
 
-  exports.debug('extend %j with %j', selectors, val);
+  debug('extend %j with %j', selectors, val);
 
   this.appendSelectors(matchedRules, val, selectors)
 }
