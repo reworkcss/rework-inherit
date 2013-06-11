@@ -12,7 +12,8 @@ function Inherit(style, options) {
 
   options = options || {}
 
-  this.propertyRegExp = options.propertyRegExp || /^inherits?$/
+  this.propertyRegExp = options.propertyRegExp
+    || /^(inherit|extend)s?$/i
 
   var rules = this.rules = style.rules
   this.matches = {}
