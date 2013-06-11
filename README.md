@@ -1,9 +1,7 @@
 ## Inherit [![Build Status](https://travis-ci.org/jonathanong/rework-inherit.png)](https://travis-ci.org/jonathanong/rework-inherit)
 
 Inherit mixin for [rework](https://github.com/visionmedia/rework).
-Like the extend mixin, but does so much more.
-If you inherit a selector,
-it will inherit __all__ rules associated with that selector.
+Allows you to inherit __all__ the rules associated with a given selector.
 
 ### API
 
@@ -20,9 +18,9 @@ var css = rework(inputCSS)
 Option parameters:
 
 * `propertyRegExp` - Regular expression to match the "inherit" property.
-  By default, it is `/^inherits?$/`, so it matches "inherit" as well as "inherits".
-  Set as `/^extends?$/` if you want to use the "extend" keyword.
-* `disableMediaInheritance` - Disable inheritance from within media queries.
+  By default, it is `/^(inherit|extend)s?$/i`, so it matches "inherit", "inherits", "extend", and "extends".
+  For example, if you only want to allow the `extend` keyword, 
+  set the regular expression to `/^extend$/`.
 
 ### Examples
 
@@ -234,8 +232,6 @@ yields:
   you can only inherit rules outside a media query.
   If you find yourself in this situation,
   just use placeholders instead.
-- Currently, selectors must be surrounded by spaces or trailed by a `:`.
-  This will not work if you write your selectors like `div>button`!
 
 ### License
 
