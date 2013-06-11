@@ -58,7 +58,8 @@ Inherit.prototype.inheritMediaRules = function (rule, query) {
 
   for (var i = 0; i < declarations.length; i++) {
     var decl = declarations[i]
-    if (!/^inherits?$/.test(decl.property)) continue;
+    if (decl.type !== 'declaration') continue;
+    if (!this.propertyRegExp.test(decl.property)) continue;
 
     decl.value.split(',').map(trim).forEach(function (val) {
       ;[].push.apply(appendRules, this.inheritMediaRule(val, selectors, query));
@@ -89,6 +90,7 @@ Inherit.prototype.inheritRules = function (rule) {
 
   for (var i = 0; i < declarations.length; i++) {
     var decl = declarations[i]
+    if (decl.type !== 'declaration') continue;
     if (!this.propertyRegExp.test(decl.property)) continue;
 
     decl.value.split(',').map(trim).forEach(function (val) {
@@ -189,7 +191,12 @@ function replaceSelector(matchedSelector, val, selector) {
 }
 
 function replaceRegExp(val) {
-  return new RegExp('(^|\\s)' + escapeRegExp(val) + '($|:|\\s)', 'g')
+  return new RegExp(
+    '(^|\\s|\\>|\\+|~)' +
+    escapeRegExp(val) +
+    '($|\\s|\\>|\\+|~|\\:)'
+    , 'g'
+  )
 }
 
 function escapeRegExp(str) {
