@@ -46,6 +46,7 @@ Inherit.prototype.inheritMedia = function (mediaRule) {
 
     if (!rule.declarations.length) rules.splice(i--, 1);
 
+    // I don't remember why I'm using apply here.
     ;[].splice.apply(rules, [i, 0].concat(additionalRules))
     i += additionalRules.length
   }
@@ -58,10 +59,12 @@ Inherit.prototype.inheritMediaRules = function (rule, query) {
 
   for (var i = 0; i < declarations.length; i++) {
     var decl = declarations[i]
+    // Could be comments
     if (decl.type !== 'declaration') continue;
     if (!this.propertyRegExp.test(decl.property)) continue;
 
     decl.value.split(',').map(trim).forEach(function (val) {
+      // Should probably just use concat here
       ;[].push.apply(appendRules, this.inheritMediaRule(val, selectors, query));
     }, this)
 
@@ -81,7 +84,9 @@ Inherit.prototype.inheritMediaRule = function (val, selectors, query) {
 
   this.appendSelectors(matchedQueryRules, val, selectors)
 
-  return alreadyMatched ? [] : matchedQueryRules.rules.map(getRule)
+  return alreadyMatched
+    ? []
+    : matchedQueryRules.rules.map(getRule)
 }
 
 Inherit.prototype.inheritRules = function (rule) {
@@ -90,6 +95,7 @@ Inherit.prototype.inheritRules = function (rule) {
 
   for (var i = 0; i < declarations.length; i++) {
     var decl = declarations[i]
+    // Could be comments
     if (decl.type !== 'declaration') continue;
     if (!this.propertyRegExp.test(decl.property)) continue;
 
