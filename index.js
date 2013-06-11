@@ -19,7 +19,7 @@ function Inherit(style, options) {
 
   for (var i = 0; i < rules.length; i++) {
     var rule = rules[i]
-    if (rule.rules && !options.disableMediaInheritance) {
+    if (rule.rules) {
       // Media queries
       this.inheritMedia(rule)
       if (!rule.rules.length) rules.splice(i--, 1);
