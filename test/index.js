@@ -30,10 +30,4 @@ var ext = rework(read('extend')).use(inherit({
 
 assert.equal(ext, read('chain.out'), 'Extends regexp failed:\n' + ext)
 
-var media = rework(read('media')).use(inherit({
-  disableMediaInheritance: true
-})).toString()
-
-assert.equal(media, read('disable.media.out'), 'Disable media inheritance failed:\n' + media)
-
 console.log('Tests pass!')
