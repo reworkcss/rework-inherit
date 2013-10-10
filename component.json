@@ -1,7 +1,7 @@
 {
   "name": "rework-inherit",
   "description": "Inherit rules from other selectors",
-  "repo": "jonathanong/rework-inherit",
+  "repo": "reworkcss/rework-inherit",
   "version": "0.2.0",
   "dependencies": {
     "visionmedia/debug": "*"

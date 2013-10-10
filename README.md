@@ -1,4 +1,4 @@
-## Inherit [![Build Status](https://travis-ci.org/jonathanong/rework-inherit.png)](https://travis-ci.org/jonathanong/rework-inherit)
+## Inherit [![Build Status](https://travis-ci.org/reworkcss/rework-inherit.png)](https://travis-ci.org/reworkcss/rework-inherit)
 
 Inherit mixin for [rework](https://github.com/visionmedia/rework).
 Allows you to inherit __all__ the rules associated with a given selector.
@@ -19,7 +19,7 @@ Option parameters:
 
 * `propertyRegExp` - Regular expression to match the "inherit" property.
   By default, it is `/^(inherit|extend)s?$/i`, so it matches "inherit", "inherits", "extend", and "extends".
-  For example, if you only want to allow the `extend` keyword, 
+  For example, if you only want to allow the `extend` keyword,
   set the regular expression to `/^extend$/`.
 
 ### Examples

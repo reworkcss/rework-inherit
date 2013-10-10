@@ -22,10 +22,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jonathanong/rework-inherit.git"
+    "url": "https://github.com/reworkcss/rework-inherit.git"
   },
   "bugs": {
-    "url": "https://github.com/jonathanong/rework-inherit/issues",
+    "url": "https://github.com/reworkcss/rework-inherit/issues",
     "email": "me@jongleberry.com"
   },
   "license": "MIT"
