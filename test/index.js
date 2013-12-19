@@ -24,10 +24,12 @@ test('tag', 'Inherit a tag failed')
 test('chain', 'Chained inheritance failed')
 test('unordered', 'Out of order inheritance failed')
 
-var ext = rework(read('extend')).use(inherit({
-  propertyRegExp: /^extends?$/
-})).toString()
+{
+  var ext = rework(read('extend')).use(inherit({
+    propertyRegExp: /^extends?$/
+  })).toString()
 
-assert.equal(ext, read('chain.out'), 'Extends regexp failed:\n' + ext)
+  assert.equal(ext, read('chain.out'), 'Extends regexp failed:\n' + ext)
+}
 
 console.log('Tests pass!')
