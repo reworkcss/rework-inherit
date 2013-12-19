@@ -1,0 +1,7 @@
+.button:active {
+  border: 1px solid blue;
+}
+
+.button--large {
+  extend: .button:active;
+}

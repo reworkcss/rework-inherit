@@ -1,0 +1,4 @@
+.button:active,
+.button--large:active {
+  border: 1px solid blue;
+}
