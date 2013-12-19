@@ -9,8 +9,10 @@ function read(file) {
 }
 
 function test(file, msg) {
-  var out = rework(read(file)).use(inherit()).toString()
-  assert.equal(out, read(file + '.out'), msg + ':\n' + out)
+  var out = rework(read(file)).use(inherit()).toString().trim()
+  var expected = read(file + '.out').trim()
+  msg += ': \n expected:\n' + expected + '\n got:\n' + out
+  assert.equal(out, expected, msg)
 }
 
 test('clearfix', 'Clearfix failed')
