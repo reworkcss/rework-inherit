@@ -5,9 +5,6 @@
   "dependencies": {
     "debug": "*"
   },
-  "peerDependencies": {
-    "rework": ">= 0.15.0"
-  },
   "devDependencies": {
     "rework": ">= 0.15.0"
   },
