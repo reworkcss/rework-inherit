@@ -1,0 +1,7 @@
+.small-red-button {
+  color: red;
+}
+
+.fake-button.small-red-button {
+  display: block;
+}

@@ -1,0 +1,11 @@
+%red-button {
+  color: red;
+}
+
+.fake-button%red-button {
+  display: block;
+}
+
+.small-red-button {
+  inherit: %red-button;
+}
