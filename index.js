@@ -202,13 +202,19 @@ function replaceSelector(matchedSelector, val, selector) {
   })
 }
 
+function isPlaceholder(val) {
+  return val[0] === '%';
+}
+
 function replaceRegExp(val) {
-  return new RegExp(
-    '(^|\\s|\\>|\\+|~)' +
-    escapeRegExp(val) +
-    '($|\\s|\\>|\\+|~|\\:)'
-    , 'g'
-  )
+  var expression = escapeRegExp(val) + '($|\\s|\\>|\\+|~|\\:)';
+  var expressionPrefix = '(^|\\s|\\>|\\+|~)';
+  if (isPlaceholder(val)) {
+    // We just want to match an empty group here to preserve the arguments we
+    // may be expecting in a RegExp match.
+    expressionPrefix = '()';
+  }
+  return new RegExp(expressionPrefix + expression, 'g');
 }
 
 function escapeRegExp(str) {

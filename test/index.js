@@ -25,7 +25,9 @@ test('multiple', 'Inherit multiple selectors failed')
 test('tag', 'Inherit a tag failed')
 test('chain', 'Chained inheritance failed')
 test('unordered', 'Out of order inheritance failed')
-test('pseudo', 'Pseudo inheritance failed')
+test('sequence', 'Sequence inheritance (e.g. .one.two%three) failed')
+test('complex-sequence', 'Complex sequence inheritance (e.g. .one.two%three) failed')
+//test('pseudo', 'Pseudo inheritance failed')
 
 {
   var ext = rework(read('extend')).use(inherit({
