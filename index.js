@@ -207,7 +207,7 @@ function isPlaceholder(val) {
 }
 
 function replaceRegExp(val) {
-  var expression = escapeRegExp(val) + '($|\\s|\\>|\\+|~|\\:)';
+  var expression = escapeRegExp(val) + '($|\\s|\\>|\\+|~|\\:|\\[)';
   var expressionPrefix = '(^|\\s|\\>|\\+|~)';
   if (isPlaceholder(val)) {
     // We just want to match an empty group here to preserve the arguments we

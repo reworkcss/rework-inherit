@@ -1,0 +1,7 @@
+%form-element[disabled] {
+  cursor: not-allowed;
+}
+
+input, select, textarea {
+  inherit: %form-element;
+}
