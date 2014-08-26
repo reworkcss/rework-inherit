@@ -197,6 +197,7 @@ Inherit.prototype.removePlaceholders = function () {
 }
 
 function replaceSelector(matchedSelector, val, selector) {
+  console.log(matchedSelector, val, selector)
   return matchedSelector.replace(replaceRegExp(val), function (_, first, last) {
     return first + selector + last
   })

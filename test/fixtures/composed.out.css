@@ -1,0 +1,19 @@
+.a + .a,
+.a + .b,
+.c + .a,
+.c + .b {
+  color: blue;
+}
+
+.baz + .baz,
+.x + .x,
+.x + .y,
+.x + .z,
+.y + .x,
+.y + .y,
+.y + .z,
+.z + .x,
+.z + .y,
+.z + .z {
+  color: red;
+}

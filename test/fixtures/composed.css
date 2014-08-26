@@ -1,0 +1,24 @@
+%foo + %bar {
+  color: blue;
+}
+
+.baz + .baz {
+  color: red;
+}
+
+.a {
+  inherit: %foo;
+  inherit: %bar;
+}
+
+.b {
+  inherit: %bar;
+}
+
+.c {
+  inherit: %foo;
+}
+
+.x, .y, .z {
+  inherit: .baz;
+}
